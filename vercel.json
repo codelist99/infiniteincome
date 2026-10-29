@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/fe1.html" },
+    { "source": "/fe1", "destination": "/fe1.html" },
+    { "source": "/fe2", "destination": "/fe2.html" },
+    { "source": "/checkout", "destination": "/checkout.html" },
+    { "source": "/thankyou", "destination": "/thankyou.html" },
+    { "source": "/refund-policy", "destination": "/refund-policy.html" },
+    { "source": "/ftc", "destination": "/ftc.html" },
+    { "source": "/earnings-disclaimer", "destination": "/earnings-disclaimer.html" },
+    { "source": "/api/:path*", "destination": "/api/index.mjs" }
+  ]
+}

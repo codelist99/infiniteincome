@@ -1,0 +1,45 @@
+/* projects/lib/packages/yggdrasil-blueprints/__generated__/dist/countdown-v1.css */
+[data-page-element="Countdown/V1"] .elCountdownRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.4em;
+}
+[data-page-element="Countdown/V1"] .elCountdownGroupDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.8em;
+}
+[data-page-element="Countdown/V1"] .elCountdownGroupTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5em;
+}
+[data-page-element="Countdown/V1"] .elCountdownColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+[data-page-element="Countdown/V1"] .elCountdownAmount > span {
+  height: 2ch;
+  min-width: 2ch;
+  line-height: 2ch;
+  display: inline-block;
+  text-align: center;
+}
+[data-page-element="Countdown/V1"] .elCountdownPeriod {
+  min-width: 4em;
+  text-align: center;
+}
+@media (max-width: 770px) {
+  [data-page-element="Countdown/V1"][data-page-element="Countdown/V1"][data-page-element="Countdown/V1"] .elCountdownRow {
+    flex-direction: row;
+  }
+}
+/*# sourceMappingURL=countdown-v1-LUC65SOV.css.map */
