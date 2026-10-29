@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2"
+    "@neondatabase/serverless": "^1.0.2",
+    "hls.js": "^1.7.4"
   },
   "scripts": {
     "start": "node --env-file-if-exists=.env --env-file-if-exists=.env.local server.mjs",
