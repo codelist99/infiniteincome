@@ -8,3 +8,5 @@ recovered-assets/
 
 .vercel
 .env*
+.agents/
+skills-lock.json

@@ -1,0 +1,7 @@
+.git/
+.agents/
+skills-lock.json
+recovered-assets/
+node_modules/
+.env*
+*.log
