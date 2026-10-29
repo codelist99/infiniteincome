@@ -23,16 +23,18 @@ const body = req => new Promise((resolve, reject) => {
 
 export async function handler(req, res) {
   const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+  const forwardedPath = url.searchParams.get('path');
+  const pathname = forwardedPath ? `/api/${forwardedPath.replace(/^\/+/, '')}` : url.pathname;
   try {
-    if (req.method === 'POST' && url.pathname === '/api/leads') {
+    if (req.method === 'POST' && pathname === '/api/leads') {
       const input = await body(req);
       await upsertLead({ ...input, source: 'opt-in', metadata: input.metadata || {} });
       return json(res, 200, { ok: true, next: '/fe2' });
     }
-    if (req.method === 'GET' && url.pathname === '/api/checkout/config') {
+    if (req.method === 'GET' && pathname === '/api/checkout/config') {
       return json(res, 200, { gateway: 'nmi', publicKey: process.env.NMI_PUBLIC_KEY || '', product });
     }
-    if (req.method === 'POST' && url.pathname === '/api/checkout') {
+    if (req.method === 'POST' && pathname === '/api/checkout') {
       const input = await body(req);
       if (!input.consent) return json(res, 400, { error: 'Please authorize the one-time charge.' });
       if (!input.paymentToken) return json(res, 400, { error: 'Secure payment token is missing.' });
@@ -47,7 +49,7 @@ export async function handler(req, res) {
         return json(res, 402, { error: error.message || 'The card was declined.', code: error.code || 'declined' });
       }
     }
-    if (url.pathname.startsWith('/api/')) return json(res, 404, { error: 'Not found' });
+    if (pathname.startsWith('/api/')) return json(res, 404, { error: 'Not found' });
 
     const routes = { '/': 'fe1.html', '/fe1': 'fe1.html', '/fe2': 'fe2.html', '/checkout': 'checkout.html', '/thankyou': 'thankyou.html', '/refund-policy': 'refund-policy.html', '/ftc': 'ftc.html', '/earnings-disclaimer': 'earnings-disclaimer.html' };
     const relative = routes[url.pathname] || url.pathname.replace(/^\//, '');

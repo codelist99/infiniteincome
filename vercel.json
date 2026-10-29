@@ -8,6 +8,6 @@
     { "source": "/refund-policy", "destination": "/refund-policy.html" },
     { "source": "/ftc", "destination": "/ftc.html" },
     { "source": "/earnings-disclaimer", "destination": "/earnings-disclaimer.html" },
-    { "source": "/api/:path*", "destination": "/api/index.mjs" }
+    { "source": "/api/:path*", "destination": "/api/index.mjs?path=:path*" }
   ]
 }
